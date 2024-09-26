@@ -15,6 +15,7 @@ const PL = () => {
                             color: "#15192C", fontFamily: 'Averta-Regular',
                             fontSize: '0.616rem',
                             lineHeight: '0.722rem',
+                            pb: '.5rem'
                         }}
                     >
                         Re-used APIs
@@ -40,6 +41,7 @@ const PL = () => {
                             color: "#15192C", fontFamily: 'Averta-Regular',
                             fontSize: '0.616rem',
                             lineHeight: '0.722rem',
+                            pb: '.5rem'
                         }}
                     >
                         Webhooks
@@ -65,6 +67,7 @@ const PL = () => {
                             color: "#15192C", fontFamily: 'Averta-Regular',
                             fontSize: '0.616rem',
                             lineHeight: '0.722rem',
+                            pb: '.5rem'
                         }}
                     >
                         API calls

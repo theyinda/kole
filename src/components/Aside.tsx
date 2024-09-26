@@ -1,39 +1,35 @@
 import { activities } from '@/data/sampleData';
-import { Box, Paper, Typography } from '@mui/material';
+import { Box, Typography } from '@mui/material';
 import React, { useEffect, useState } from 'react';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 
 interface AsideProps {
     name: string;
-
 }
 
-
 const Aside: React.FC<AsideProps> = ({ name }) => {
-    const [fadeIndexes, setFadeIndexes] = useState(new Array(activities.length).fill(true));
+    const [fadeIndexes, setFadeIndexes] = useState(new Array(activities.length).fill(false));
 
     const handleScroll = () => {
         const updatedFades = activities.map((_, index) => {
+            if (index === 0) {
+
+                return false;
+            }
             const box = document.getElementById(`activity-box-${index}`);
             if (box) {
                 const rect = box.getBoundingClientRect();
-                // Only the first item should not fade
-                if (index === 0) {
-                    return false; // Always keep the first one unfaded
-                }
-                // Check if the box is in the viewport
-                return rect.top >= 0 && rect.bottom <= window.innerHeight;
+
+                return !(rect.top >= 0 && rect.bottom <= window.innerHeight);
             }
             return false;
         });
 
-        // Update the fade states based on the visibility of the elements
-        setFadeIndexes(updatedFades.map((isVisible, index) => index === 0 || !isVisible));
+        setFadeIndexes(updatedFades);
     };
 
     useEffect(() => {
         window.addEventListener('scroll', handleScroll);
-        // Initial check for visibility
         handleScroll();
 
         return () => {
@@ -61,16 +57,15 @@ const Aside: React.FC<AsideProps> = ({ name }) => {
                         {name}
                     </Typography>
                     <MoreVertIcon sx={{ color: '#92959E' }} />
-
                 </Box>
 
                 {activities.map((item, index) => (
                     <Box
                         key={index}
-                        id={`activity-box-${index}`} // Unique ID for each box
+                        id={`activity-box-${index}`}
                         sx={{
-                            mb: index < activities.length - 1 ? 2 : 0, // Margin only for non-last items
-                            opacity: fadeIndexes[index] ? 0.3 : 1, // Fade effect
+                            mb: index < activities.length - 1 ? 2 : 0,
+                            opacity: fadeIndexes[index] ? 0.3 : 1,
                             transition: 'opacity 0.5s ease',
                         }}
                     >

@@ -30,7 +30,7 @@ export default function ClientLayout({
         <ThemeProvider theme={theme}>
             <CssBaseline />
 
-            <Box sx={{ width: "100%" }}>
+            <Box sx={{ width: "100%", }}>
                 <Box
                     sx={{
                         display: "flex",
@@ -44,7 +44,7 @@ export default function ClientLayout({
 
                     <Box sx={{ flexGrow: 1, padding: "1rem" }}>
                         <Header />
-                        <Container sx={{ padding: "0 !important" }}>{children}</Container>
+                        <Container sx={{ padding: "0 !important", height: '100vh' }}>{children}</Container>
                     </Box>
                 </Box>
             </Box>
