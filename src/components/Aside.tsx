@@ -44,7 +44,7 @@ const Aside: React.FC<AsideProps> = ({ name }) => {
             boxShadow: "0px 4px 8px 0px rgba(16, 24, 64, 0.08)",
             padding: "1.25rem",
             background: '#fff',
-            height: '35.722rem',
+            height: { xs: '20rem', sm: '18rem', md: '18rem', lg: '24rem' },
             overflowY: 'auto',
         }}>
             <Box sx={{ borderRadius: '0.5rem', width: '100%' }}>

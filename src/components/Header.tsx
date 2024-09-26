@@ -12,8 +12,8 @@ export default function Header() {
 
     return (
         <Box sx={{ width: '100%' }}>
-            <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', width: '100%', margin: '1rem auto 2rem auto', }}>
-                <Box>
+            <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', width: '100%', margin: '1rem auto 2rem auto', mt: { sm: '2rem', md: '2rem', lg: '0' }, }}>
+                <Box >
                     <Typography sx={{
                         fontFamily: 'Averta-Semibold',
                         fontSize: '1.76rem',
@@ -36,9 +36,15 @@ export default function Header() {
                 <Box>
                     <LocalizationProvider dateAdapter={AdapterDateFns}>
                         <DatePicker
-                            label="Select Date"
                             value={selectedDate}
                             onChange={(newValue) => setSelectedDate(newValue)}
+                            // // renderInput={(params) => <TextField {...params} />}
+                            sx={{
+                                background: '#F4F5F7',
+                                borderRadius: '0.528rem',
+                                borderColor: '#F4F5F7',
+                            }}
+
                         />
                     </LocalizationProvider>
                 </Box>

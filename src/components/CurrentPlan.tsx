@@ -126,7 +126,7 @@ const CurrentPlan = () => {
                             color: "#15192C", fontFamily: 'Averta-Regular',
                             fontSize: '0.616rem',
                             lineHeight: '0.039rem',
-                        }}>7.5k / 10k</Typography>
+                        }}> {`${sampleData.requests.length + 'k'} / 10k`}</Typography>
                     </Box>
 
                     <LinearProgress
